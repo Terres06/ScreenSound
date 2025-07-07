@@ -15,6 +15,7 @@ void ExibeBoasVindas()
 
 void ExibirOpccoes()
 {
+    Console.WriteLine();
     Console.WriteLine("Selecione uma opção:");
     Console.WriteLine("1 - Registrar uma banda");
     Console.WriteLine("2 - Mostrar todas as bandas ");
