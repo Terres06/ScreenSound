@@ -1,4 +1,5 @@
 ﻿string mensagemDeBoasVindas = "Bem vindo ao screen sound!";
+List<string> bandasRegistradas = new List<string>();
 void ExibeBoasVindas()
 {
     Console.WriteLine(@"
@@ -28,10 +29,10 @@ void ExibirOpccoes()
     switch (opcaoEscolhidaNumerica)
     {
         case 1:
-            Console.WriteLine("$Você escolheu {opcaoEscolhidaNumerica}!, registrar uma banda.");
+            RegistrarBanda();
             break;
         case 2:
-            Console.WriteLine($"Você escolheu {opcaoEscolhidaNumerica}!, mostrar todas as bandas.");
+            ListarBandasRegistradas();
             break;
         case 3:
             Console.WriteLine($"Você escolheu {opcaoEscolhidaNumerica}!, avaliar uma banda.");
@@ -48,6 +49,32 @@ void ExibirOpccoes()
             ExibirOpccoes();
             break;
     }
+}
+
+void RegistrarBanda()
+{
+    Console.Clear();
+    Console.WriteLine("Registro de Banda");
+
+    bool continuarResposta;
+
+    do
+    {
+        Console.WriteLine("Digite a banda que deseja registrar:");
+
+        string bandaRegistrada = Console.ReadLine()!;
+
+        bandasRegistradas.Add(bandaRegistrada);
+        Console.WriteLine($"Banda '{bandaRegistrada}' registrada com sucesso!");
+        Console.WriteLine($"Total de bandas registradas: {bandasRegistradas.Count}");
+        Console.WriteLine("Deseja registrar outra banda? (s/n)");
+
+        string resposta = Console.ReadLine();
+
+        continuarResposta = resposta.ToLower() == "s";
+
+    } while (continuarResposta == true);
+    
 }
 
 ExibeBoasVindas();
