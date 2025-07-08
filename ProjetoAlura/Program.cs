@@ -64,13 +64,12 @@ void RegistrarBanda()
 
     do
     {
-        Console.WriteLine("Digite a banda que deseja registrar:");
+        Console.WriteLine("\nDigite a banda que deseja registrar:");
 
         string bandaRegistrada = Console.ReadLine()!;
 
         bandasRegistradas.Add(bandaRegistrada);
         Console.WriteLine($"Banda '{bandaRegistrada}' registrada com sucesso!");
-        Console.WriteLine($"Total de bandas registradas: {bandasRegistradas.Count}");
         Console.WriteLine("Deseja registrar outra banda? (s/n)");
 
         string resposta = Console.ReadLine();
@@ -86,7 +85,7 @@ void RegistrarBanda()
 void ListarBandasRegistradas()
 {
     Console.Clear();
-    Console.WriteLine("Bandas Registradas:");
+    Console.WriteLine("Bandas Registradas:\n");
 
     if (bandasRegistradas.Count == 0)
     {
@@ -98,8 +97,10 @@ void ListarBandasRegistradas()
         {
             Console.WriteLine($"- {banda}");
         }
+        Console.WriteLine($"\nTotal de bandas registradas: {bandasRegistradas.Count}");
     }
-
+    Console.WriteLine("\nPressione qualquer tecla para continuar...");
+    Console.ReadKey();
     Console.Clear();
 
     ExibirOpccoes();
@@ -107,3 +108,4 @@ void ListarBandasRegistradas()
 
 ExibeBoasVindas();
 ExibirOpccoes();
+
