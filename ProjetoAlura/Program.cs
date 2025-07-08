@@ -1,6 +1,6 @@
 ﻿string mensagemDeBoasVindas = "Bem vindo ao screen sound!";
 
-List<string> bandasRegistradas = new List<string>();
+Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
 
 void ExibeBoasVindas()
 {
@@ -68,7 +68,7 @@ void RegistrarBanda()
 
         string bandaRegistrada = Console.ReadLine()!;
 
-        bandasRegistradas.Add(bandaRegistrada);
+        bandasRegistradas.Add(bandaRegistrada, new List<int>());
         Console.WriteLine($"Banda '{bandaRegistrada}' registrada com sucesso!");
         Console.WriteLine("Deseja registrar outra banda? (s/n)");
 
@@ -93,7 +93,7 @@ void ListarBandasRegistradas()
     }
     else
     {
-        foreach (var banda in bandasRegistradas)
+        foreach (var banda in bandasRegistradas.Keys)
         {
             Console.WriteLine($"- {banda}");
         }
@@ -106,6 +106,5 @@ void ListarBandasRegistradas()
     ExibirOpccoes();
 }
 
-ExibeBoasVindas();
 ExibirOpccoes();
 
