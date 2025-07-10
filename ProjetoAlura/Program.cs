@@ -39,7 +39,7 @@ void ExibirOpccoes()
             ListarBandasRegistradas();
             break;
         case 3:
-            Console.WriteLine($"Você escolheu {opcaoEscolhidaNumerica}!, avaliar uma banda.");
+            AvaliarBanda();
             break;
         case 4:
             Console.WriteLine($"Você escolheu {opcaoEscolhidaNumerica}!, exibir a média de uma banda.");
@@ -104,6 +104,48 @@ void ListarBandasRegistradas()
     Console.Clear();
 
     ExibirOpccoes();
+}
+
+void AvaliarBanda()
+{
+    Console.Clear();
+    Console.WriteLine("Avaliação de Banda\n");
+
+    bool continuarResposta;
+
+    do
+    {
+        Console.WriteLine("Digite a banda que deseja avaliar: ");
+
+        string bandaSelecionada = Console.ReadLine()!;
+
+        Console.WriteLine("Digite a nota de 0 a 10: ");
+
+        int notaBanda = int.Parse(Console.ReadLine()!);
+
+        if (bandasRegistradas.Keys.Contains(bandaSelecionada))
+        {
+            if (notaBanda >= 0 || notaBanda <= 10)
+            {
+                bandasRegistradas[bandaSelecionada].Add(notaBanda);
+                Console.WriteLine($"Nota {notaBanda} registrada para a banda {bandaSelecionada}.");
+            }
+            else
+            {
+                Console.WriteLine("Nota invalida. Por favor, insira uma nota entre 0 e 10.");
+            }
+        }
+        Console.WriteLine("Deseja avaliar outra banda? (s/n)");
+
+        string resposta = Console.ReadLine();
+
+        continuarResposta = resposta.ToLower() == "s" || resposta.ToLower() == "sim";
+
+    } while( continuarResposta );
+
+    Console.Clear();
+    ExibirOpccoes();
+
 }
 
 ExibirOpccoes();
