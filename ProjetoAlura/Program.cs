@@ -1,6 +1,6 @@
 ﻿string mensagemDeBoasVindas = "Bem vindo ao screen sound!";
 
-Dictionary<string, List<int>> bandasRegistradas = new Dictionary<string, List<int>>();
+Dictionary<string, List<double>> bandasRegistradas = new Dictionary<string, List<double>>();
 
 void ExibeBoasVindas()
 {
@@ -42,7 +42,7 @@ void ExibirOpccoes()
             AvaliarBanda();
             break;
         case 4:
-            MediaDsaBandas();
+            MediaDasBandas();
             break;
         case 0:
             Console.WriteLine("Saindo do programa. Até logo!");
@@ -68,7 +68,7 @@ void RegistrarBanda()
 
         string bandaRegistrada = Console.ReadLine()!;
 
-        bandasRegistradas.Add(bandaRegistrada, new List<int>());
+        bandasRegistradas.Add(bandaRegistrada, new List<double>());
         Console.WriteLine($"Banda '{bandaRegistrada}' registrada com sucesso!");
         Console.WriteLine("Deseja registrar outra banda? (s/n)");
 
@@ -157,7 +157,7 @@ void AvaliarBanda()
 
 }
 
-void MediaDsaBandas()
+void MediaDasBandas()
 {
     Console.Clear();
     Console.WriteLine("Media das bandas\n");
