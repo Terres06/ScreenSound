@@ -119,16 +119,6 @@ void AvaliarBanda()
 
         string bandaSelecionada = Console.ReadLine()!;
 
-        if (!bandasRegistradas.Keys.Contains(bandaSelecionada))
-        {
-            Console.WriteLine($"A banda '{bandaSelecionada}' não está registrada.");
-            Console.WriteLine("Pressione qualquer tecla para continuar...");
-            Console.ReadKey();
-            Console.Clear();
-            ExibirOpccoes();
-            return;
-        }
-
         Console.WriteLine("Digite a nota de 0 a 10: ");
 
         int notaBanda = int.Parse(Console.ReadLine()!);
@@ -144,6 +134,15 @@ void AvaliarBanda()
             {
                 Console.WriteLine("Nota invalida. Por favor, insira uma nota entre 0 e 10.");
             }
+        }
+        else
+        {
+            Console.WriteLine($"A banda '{bandaSelecionada}' não está registrada.");
+            Console.WriteLine("Pressione qualquer tecla para continuar...");
+            Console.ReadKey();
+            Console.Clear();
+            ExibirOpccoes();
+            return;
         }
         Console.WriteLine("Deseja avaliar outra banda? (s/n)");
 
