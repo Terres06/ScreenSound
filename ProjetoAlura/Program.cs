@@ -42,7 +42,7 @@ void ExibirOpccoes()
             AvaliarBanda();
             break;
         case 4:
-            Console.WriteLine($"Você escolheu {opcaoEscolhidaNumerica}!, exibir a média de uma banda.");
+            MediaDsaBandas();
             break;
         case 0:
             Console.WriteLine("Saindo do programa. Até logo!");
@@ -121,11 +121,11 @@ void AvaliarBanda()
 
         Console.WriteLine("Digite a nota de 0 a 10: ");
 
-        int notaBanda = int.Parse(Console.ReadLine()!);
+        double notaBanda = double.Parse(Console.ReadLine()!);
 
         if (bandasRegistradas.Keys.Contains(bandaSelecionada))
         {
-            if (notaBanda >= 0 && notaBanda <= 10)
+            if (notaBanda >= 0.0 && notaBanda <= 10.0)
             {
                 bandasRegistradas[bandaSelecionada].Add(notaBanda);
                 Console.WriteLine($"Nota {notaBanda} registrada para a banda {bandaSelecionada}.");
@@ -152,6 +152,29 @@ void AvaliarBanda()
 
     } while( continuarResposta );
 
+    Console.Clear();
+    ExibirOpccoes();
+
+}
+
+void MediaDsaBandas()
+{
+    Console.Clear();
+    Console.WriteLine("Media das bandas\n");
+    foreach (var banda in bandasRegistradas)
+    {
+        if (banda.Value.Count > 0)
+        {
+            double media = banda.Value.Average();
+            Console.WriteLine($"A média de avaliações da banda {banda.Key} é: {media:F2}");
+        }
+        else
+        {
+            Console.WriteLine($"A banda {banda.Key} ainda não possui avaliações.");
+        }
+    }
+    Console.WriteLine("\nPressione qualquer tecla para continuar...");
+    Console.ReadKey();
     Console.Clear();
     ExibirOpccoes();
 
